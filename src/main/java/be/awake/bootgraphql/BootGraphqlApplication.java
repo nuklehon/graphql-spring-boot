@@ -12,13 +12,13 @@ import javax.servlet.Filter;
 @EnableJpaRepositories
 public class BootGraphqlApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(BootGraphqlApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(BootGraphqlApplication.class, args);
+    }
 
-	@Bean
-	public Filter OpenFilter() {
-		return new OpenEntityManagerInViewFilter();
-	}
+    @Bean
+    public Filter openEntityManagerInViewFilter() {
+        return new OpenEntityManagerInViewFilter();
+    }
 
 }
