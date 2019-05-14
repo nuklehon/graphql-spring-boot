@@ -1,0 +1,44 @@
+server:
+  port: 8888
+
+spring:
+
+  h2:
+    console:
+      enabled: true
+
+  datasource:
+     url: jdbc:h2:file:~/test
+     data-username: sa
+     driver-class-name: org.h2.Driver
+
+logging:
+  file: /log/app.log
+  level:
+    be.awake: DEBUG
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"
+    file: "%d %p %c{1.} [%t] %m%n"
+
+
+graphql:
+  servlet:
+    mapping: /graphql
+    enabled: true
+    corsEnabled: true
+
+graphiql:
+  mapping: /graphiql
+  endpoint:
+    graphql: /graphql
+    subscriptions: /subscriptions
+  subscriptions:
+    timeout: 30
+    reconnect: false
+  static:
+    basePath: /
+  enabled: true
+  pageTitle: GraphiQL
+  cdn:
+    enabled: false
+    version: 0.13.0

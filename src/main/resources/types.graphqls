@@ -1,0 +1,12 @@
+schema {
+    query: Query
+}
+
+type Author {
+    id: ID!
+    name: String!
+}
+
+type Query {
+    authors: [Author]!
+}
