@@ -1,12 +1,26 @@
 schema {
     query: Query
+    mutation: Mutation
 }
 
 type Author {
     id: ID!
     name: String!
+    movies: [Movie!]
+}
+
+type Movie {
+    id: ID!
+    title: String!
+    author: Author
 }
 
 type Query {
-    authors: [Author]!
+    authors(id: ID): [Author]!
+    movies(id: ID): [Movie]!
+}
+
+type Mutation {
+    createMovie(title: String!, authorId: ID): Movie
+    createAuthor(name: String!): Author
 }
